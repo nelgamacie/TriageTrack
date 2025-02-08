@@ -1,0 +1,321 @@
+{
+    "definitions": {
+        "level1_resuscitation":"Conditions that are threats to life or limb (or imminent risk of detioration) requiring immediate aggresive interventions",
+        "level2_emergent":"Conditions that are a potential threat to life, limb or function, requiring rapid intervention",
+        "level3_urgent":"Conditions that could potentially progress to a serious problem requiring emergency intervention. May be associated with significant discomfort or affecting ability to work or activites of daily living",
+        "level4_less_urgent":"Conditions that relate to patient age, distress, or potential for deterioration or complications, which would benefit from intervention or reassurance within 1-2 hours",
+        "level5_non_urgent":"COnditions that may be acute but non-urgent, as well as chronic conditions which may be part of a chronic problem, with or without evidence of detioration. The investigation or interventions for some of these illnesses or injuries could be delayed or even referred to other areas of the hospital or health care system."
+    },
+    
+    "symptoms":{
+        "level1_resuscitation": ["Cardiac Arrest", "Respiratory Arrest", "Major Trauma", "Shock", "Shortness of breath", "severe respiratory distress", "altered level of Conciousness", "Unconscious", "GCS 3-9"],
+        "level2_emergent":["Shortness of Breath", "Moderate Respiratory Distress", "Vomiting blood", "Dizzy on sitting up", "Hypertension", "SBP>220", "DBP>130", "Altered level of Conciousness", "GCS 10-13",
+                         "Fever > 38C", "Septic", "3 SIRS criteria", "chest pain", "non cardiac features", "Abdominal pain", "Severe acute pain", "Acute Pain 8/10", "Severe headache", "Sudden headache", "Worst Headache",
+                          "Severe dehydration", "Severe vomiting", "Severe diarrhoea","Major trauma - blunt", "no obvious injury"],
+        "level3_urgent":["Shortness of Breath", "Mild Respiratory Distress", "Vomiting", "Nausea", "Mild dehydration", "Hypertension", "SBP>220", "DBP>130", 
+                            "Abdominal pain", "Moderate acute pain", "Acute Pain 4-7/10", "Moderate headache", "diarrhoea", "uncontrolled bloody diarrhoea"],
+        "level4_less_urgent":["Confusion", "Chronic", "No change from usual state", "UTI complaints", "UTI symptoms", "Mild dysuria", "Constipation", "Mild pain"],
+                            
+        "level5_non_urgent":["Mild Diarrhoea", "No dehydration","Minor bites", "Mild acute peripheral pain", "dressing changes uncomplicated", "medication request"]
+
+    },
+
+    "CEDIS":[
+        "Substance Misuse",
+        "SUBST",
+        "Mental Health",
+        "MH",
+        "Neurologic",
+        "CNS",
+        "Opthalmologic",
+        "ENT - Nose",
+        "ENT-N",
+        "ENT - Mouth, throat, neck",
+        "ENT-MTN",
+        "ENT - Ear",
+        "ENT-E",
+        "Respiratory",
+        "RESP",
+        "Cardiovascular",
+        "CVS",
+        "Gastrointestinal",
+        "GI",
+        "OB-GYN",
+        "Genitourinary",
+        "GU",
+        "Orthopedic",
+        "ORTHO",
+        "Trauma",
+        "T",
+        "Environmental",
+        "ENV",
+        "Skin",
+        "SKIN",
+        "General and Minor",
+        "GEN"
+    ],
+
+    "respiratory_distress" : [
+        {
+            "level": "Severe",
+            "description": "Fatigue from excessive work of breathing, cyanosis, single-word speech or unable to speak, upper airway obstruction, lethargic or confused, intubated or requiring assisted breathing",
+            "O2_Saturation": "<90%",
+            "PEFR_Predicted": "Not applicable",
+            "CTAS_Level": 1
+          },
+          {
+            "level": "Moderate",
+            "description": "Increased work of breathing, speaking in phrases or clipped sentences, significant or worsening stridor, but airway protected",
+            "O2_Saturation": "<92%",
+            "PEFR_Predicted": "<40%",
+            "CTAS_Level": 2
+          },
+          {
+            "level": "Mild",
+            "description": "Dyspnea, tachypnea, shortness of breath on exertion, no obvious increased work of breathing, able to speak in sentences, stridor without any obvious airway obstruction",
+            "O2_Saturation": "92 - 94%",
+            "PEFR_Predicted": "40 - 60%",
+            "CTAS_Level": 3
+          }
+
+    ],
+
+    "hemodynamic_stability": [
+    {
+      "circulatory_status": "Shock",
+      "description": "Severe end-organ hypoperfusion: weak or thready pulse, hypotension, significant tachycardia or bradycardia, decreased level of consciousness. Could also appear flushed, febrile, toxic, as in septic shock",
+      "CTAS_Level": 1
+    },
+    {
+      "circulatory_status": "Hemodynamic compromise",
+      "description": "Borderline perfusion; unexplained tachycardia, postural hypotension (by history), or suspected hypotension (lower than normal or expected blood pressure for a given patient)",
+      "CTAS_Level": 2
+    },
+    {
+      "circulatory_status": "Vital signs at the upper and lower ends of normal",
+      "description": "Relevant to the presenting complaint, especially if they differ from the patient’s normal values",
+      "CTAS_Level": 3
+    },
+    {
+      "circulatory_status": "Normal vital signs",
+      "description": "No hemodynamic instability",
+      "CTAS_Level": "4 & 5"
+    }
+  ],
+
+  "level_of_consciousness": [
+    {
+      "status": "Unconscious",
+      "GCS": "3-9",
+      "ctas_level": 1,
+      "description": "Unable to protect airway, continuous seizure, or progressive deterioration in level of consciousness."
+    },
+    {
+      "status": "Altered level of consciousness",
+      "GCS": "10-13",
+      "ctas_level": 2,
+      "description": "Loss of orientation to person, place, or time; new impairment of memory, new onset confusion, agitation."
+    },
+    {
+      "status": "Normal",
+      "GCS": "14-15",
+      "ctas_level": "3, 4, or 5",
+      "description": "Use other modifiers to define CTAS."
+    }
+  ],
+  "temperature": [
+    {
+      "condition": "Immunocompromised (Neutropenia, chemotherapy, or on immunosuppressive drugs including steroids)",
+      "ctas_level": 2
+    },
+    {
+      "condition": "Septic (3 positive SIRS criteria)",
+      "ctas_level": 2
+    },
+    {
+      "condition": "Looks unwell (1-2 positive SIRS criteria)",
+      "ctas_level": 3
+    },
+    {
+      "condition": "Looks well (fever as only positive SIRS criterion)",
+      "ctas_level": 4
+    }
+  ],
+  "pain_severity": [
+    {
+      "severity": "Severe (8-10)",
+      "location": "Central",
+      "acute_chronic": "Acute",
+      "ctas_level": 2
+    },
+    {
+      "severity": "Severe (8-10)",
+      "location": "Peripheral",
+      "acute_chronic": "Acute",
+      "ctas_level": 3
+    },
+    {
+      "severity": "Moderate (4-7)",
+      "location": "Central",
+      "acute_chronic": "Acute",
+      "ctas_level": 3
+    },
+    {
+      "severity": "Moderate (4-7)",
+      "location": "Peripheral",
+      "acute_chronic": "Acute",
+      "ctas_level": 4
+    },
+    {
+      "severity": "Mild (1-3)",
+      "location": "Central",
+      "acute_chronic": "Acute",
+      "ctas_level": 4
+    },
+    {
+      "severity": "Mild (1-3)",
+      "location": "Peripheral",
+      "acute_chronic": "Acute",
+      "ctas_level": 5
+    }
+  ],
+  "bleeding_disorder": [
+    {
+      "type": "Life or Limb Threatening Bleed",
+      "ctas_level": 2,
+      "examples": ["Intracranial bleed", "Massive vaginal hemorrhage", "Deep lacerations", "Chest/abdominal/pelvic/spinal bleeds"]
+    },
+    {
+      "type": "Moderate/Minor Bleed",
+      "ctas_level": 3,
+      "examples": ["Nosebleed (epistaxis)", "Minor gum bleeding", "Hemarthroses", "Superficial lacerations"]
+    }
+  ],
+  "mechanism_of_injury": [
+    {
+      "moi": "General Trauma",
+      "type": "High-risk MOI (Motor Vehicle Crash, pedestrian struck, fall >18ft, penetrating injury to high-risk anatomical regions)",
+      "ctas_level": 2
+    },
+    {
+      "moi": "Head Trauma",
+      "type": "Moderate-risk MOI (Head trauma from MVC, pedestrian struck, fall >3ft, blunt object assault)",
+      "ctas_level": 3
+    },
+    {
+        "moi": "Neck Trauma",
+        "type": "Moderate-risk MOI (Head trauma from MVC, MCC,  fall >3ft or 5 stairs, axial load to the head)",
+        "ctas_level": 3
+    }
+  ],
+  "blood_glucose": [
+    {
+      "presenting_complaint": "Altered level of consciousness, confusion, hyperglycemia, hypoglycemia",
+      "blood_glucose": "<3mmol/L",
+      "symptoms": "Confusion, diaphoresis, behavioral change, seizure",
+      "ctas_level": 2
+    },
+    {
+        "presenting_complaint": "Altered level of consciousness, confusion, hyperglycemia, hypoglycemia",
+        "blood_glucose": "<3mmol/L",
+        "symptoms": "none",
+        "ctas_level": 3
+      },
+    {
+      "presenting_complaint": "Altered level of consciousness, confusion, hyperglycemia, hypoglycemia",
+      "blood_glucose": ">18mmol/L",
+      "symptoms": "Dyspnea, dehydration, weakness",
+      "ctas_level": 2
+    },
+    {
+      "presenting_complaint": "Altered level of consciousness, confusion, hyperglycemia, hypoglycemia",
+      "blood_glucose": ">18mmol/L",
+      "symptoms": "none",
+      "ctas_level": 3
+    }
+  ],
+  "dehydration": [
+    {
+      "severity": "Severe",
+      "symptoms": "Marked volume loss with classic signs of dehydration and shock",
+      "ctas_level": 1
+    },
+    {
+      "severity": "Moderate",
+      "symptoms": "Dry mucous membranes, tachycardia, decreased skin turgor, decreased urine output",
+      "ctas_level": 2
+    },
+    {
+      "severity": "Mild",
+      "symptoms": "Stable vital signs with increasing thirst, concentrated urine, history of fluid loss",
+      "ctas_level": 3
+    },
+    {
+      "severity": "Potential dehydration",
+      "symptoms": "No symptoms but ongoing fluid loss or difficulty tolerating oral fluids",
+      "ctas_level": 4
+    }
+  ],
+  "hypertension": [
+    {
+      "blood_pressure": "SBP >220 or DBP >130",
+      "symptoms": "Any symptoms",
+      "ctas_level": 2
+    },
+    {
+      "blood_pressure": "SBP >220 or DBP >130",
+      "symptoms": "No symptoms",
+      "ctas_level": 3
+    },
+    {
+      "blood_pressure": "SBP 200-220 or DBP 110-130",
+      "symptoms": "Any symptoms",
+      "ctas_level": 3
+    },
+    {
+      "blood_pressure": "SBP 200-220 or DBP 110-130",
+      "symptoms": "No symptoms",
+      "ctas_level": 4
+    }
+  ],
+
+  "2nd_order_modifiers":[
+    {
+        "presenting_complaint":"Chest pain, non-cardiac features",
+        "revised_modifier":"other signification chest pain, ripping or tearing",
+        "ctas_level":2
+    },
+    {
+        "presenting_complaint":"Extermity weakness, symptoms of CVA",
+        "revised_modifier":"time of onset < 4.5 hours",
+        "ctas_level":2
+    },
+    {
+        "presenting_complaint":"Extermity weakness, symptoms of CVA",
+        "revised_modifier":"time of onset > 4.5 hours, resolved",
+        "ctas_level":3
+    },
+    {
+        "presenting_complaint":"difficulty swallowing, dysphagia",
+        "revised_modifier":"drooling or stridor",
+        "ctas_level":2
+    },
+    {
+        "presenting_complaint":"difficulty swallowing, dysphagia",
+        "revised_modifier":"possible foreign body",
+        "ctas_level":3
+    },
+    {
+        "presenting_complaint":"Upper or lower extremity injury",
+        "revised_modifier":"obvious deformity",
+        "ctas_level":3
+    }
+  ]
+
+
+
+
+
+    
+    
+}
