@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 
 const Header = () => (
   <header className="header">
-    <h1>TriageTrack</h1>
+    <div className="logo-container">
+      <img src="/Black and Blue Simple Medical Health Logo.png" alt="TriageTrack Logo" className="logo" />
+      <h1>TriageTrack</h1>
+    </div>
     <div className="header-right">
       <nav>
         <Link to="/" className="nav-link">
@@ -22,7 +25,8 @@ const Header = () => (
       <img src={remindersIcon} alt="Reminder" className="reminder-icon" />
     </div>
   </header>
-)
+);
+
 
 
 
