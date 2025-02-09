@@ -27,28 +27,44 @@ const Header = () => (
 
 
 const App = () => {
-
   useEffect(() => {
-  
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-    
-    // Define the script's onload behavior
-    script.onload = () => {
-      window.voiceflow.chat.load({
-        verify: { projectID: "67a842f7c8eee2e3f86f7239" },
-        url: "https://general-runtime.voiceflow.com",
-        versionID: "production",
-      });
-    };
-    // Append the script to the document body
-    document.body.appendChild(script);
-    // Cleanup: Remove the script when the component unmounts
+    // Check if the script is already added to avoid multiple instances
+    if (!document.querySelector("script[src='https://cdn.voiceflow.com/widget/bundle.mjs']")) {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+      
+      script.onload = () => {
+        if (window.voiceflow?.chat) {
+          window.voiceflow.chat.load({
+            verify: { projectID: "67a842f7c8eee2e3f86f7239" },
+            url: "https://general-runtime.voiceflow.com",
+            versionID: "production",
+          });
+        }
+      };
+
+      document.body.appendChild(script);
+    } else {
+      // If script already exists, directly load chat
+      if (window.voiceflow?.chat) {
+        window.voiceflow.chat.load({
+          verify: { projectID: "67a842f7c8eee2e3f86f7239" },
+          url: "https://general-runtime.voiceflow.com",
+          versionID: "production",
+        });
+      }
+    }
+
     return () => {
-      document.body.removeChild(script);
+      
+      if (window.voiceflow?.chat) {
+        window.voiceflow.chat.unload();
+      }
     };
   }, []);
+
+
 
   return (
     <PatientProvider>
