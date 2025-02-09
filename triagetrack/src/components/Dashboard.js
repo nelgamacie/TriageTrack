@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { usePatientContext } from "./PatientContext"
 
 const getTriageColor = (level) => {
@@ -85,19 +85,37 @@ const QueueList = () => {
 }
 
 const RemindersBox = () => {
-  const reminders = [
-    { id: 1, text: "Check on John Doe's pain level", time: "In 10 minutes" },
-    { id: 2, text: "Reassess Jane Smith's fever", time: "In 30 minutes" },
-    { id: 3, text: "Follow up on Bob Johnson's test results", time: "In 1 hour" },
-  ]
+  const [reminders, setReminders] = useState([
+    { id: 1, text: "Check on John Doe's pain level", time: 200 },
+    { id: 2, text: "Reassess Jane Smith's fever", time: 1800 },
+    { id: 3, text: "Follow up on Bob Johnson's test results", time: 3600 },
+  ])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setReminders((prevReminders) =>
+        prevReminders.map((reminder) =>
+          reminder.time > 0 ? { ...reminder, time: reminder.time - 1 } : reminder
+        )
+      )
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60)
+    const seconds = time % 60
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
+  }
 
   return (
     <div className="reminders-box">
       <h2>Reminders</h2>
       {reminders.map((reminder) => (
-        <div key={reminder.id} className="reminder-item">
+        <div key={reminder.id} className={`reminder-item ${reminder.time <= 300 ? "flashing" : ""}`}>
           <p>{reminder.text}</p>
-          <p className="reminder-time">{reminder.time}</p>
+          <p className="reminder-time">{formatTime(reminder.time)}</p>
         </div>
       ))}
     </div>
@@ -118,4 +136,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-

@@ -19,7 +19,7 @@ const Header = () => (
           Assess Patient
         </Link>
       </nav>
-      <img src="/reminderIcon.png" alt="Reminder" className="reminder-icon" />
+      <img src={remindersIcon} alt="Reminder" className="reminder-icon" />
     </div>
   </header>
 )
