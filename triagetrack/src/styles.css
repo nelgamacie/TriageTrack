@@ -298,4 +298,38 @@
     font-weight: bold;
     color: #333;
   }
-  
+  .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 120px;
+    margin-right: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--color-text);
+    margin-right: 1.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.nav-link:last-child {
+    margin-right: 1rem;
+}
+
+.reminder-icon {
+    width: 24px;
+    height: 24px;
+}
