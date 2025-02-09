@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Dashboard from "./components/Dashboard";
+import PatientAssessment from "./components/PatientAssessment";
+import PatientProvider from "./components/PatientContext";
+import remindersIcon from "./remindersIcon.png";
+import "./styles.css";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const Header = () => (
+  <header className="header">
+    <h1>TriageTrack</h1>
+    <div className="header-right">
+      <nav>
+        <Link to="/" className="nav-link">
+          Dashboard
+        </Link>
+        <Link to="/assess" className="nav-link">
+          Assess Patient
+        </Link>
+      </nav>
+      <img src="/reminderIcon.png" alt="Reminder" className="reminder-icon" />
     </div>
-  );
+  </header>
+)
+
+const App = () => {
+  return (
+    <PatientProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/assess" element={<PatientAssessment />} />
+        </Routes>
+      </Router>
+    </PatientProvider>
+  )
 }
 
-export default App;
+export default App
+
