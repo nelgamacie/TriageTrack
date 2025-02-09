@@ -1,5 +1,5 @@
 :root {
-    --color-light-blue: #E0F7FA;
+  --color-light-blue: #E0F7FA;
     --color-primary: #577399;
     --color-secondary: #bdd5ea;
     --color-background: #f8f9fa;
@@ -9,7 +9,7 @@
     --color-triage-2: #ff0000;
     --color-triage-3: #ffdc00;
     --color-triage-4: #2ecc40;
-    --color-triage-5: #ffffff;    
+    --color-triage-5: #ffffff;
   }
   
   body {
