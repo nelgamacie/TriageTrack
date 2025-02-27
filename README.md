@@ -1,1 +1,6 @@
 # TriageTrack
+
+TriageTrack is a digital system that includes an AI assitant to streamline the process of triage within Emergency Rooms.
+The AI assistant, which we have created by training a Claude 2.0 model and integrating it through Voiceflow, allows the nurse to take down notes about the patient's illness. Based on these symptoms and conditions the model generates new questions, dynamically - unique for each response, to better understand the patient's situation. Once complete, the AI assistant generates a report continaing the triage level and score of the patient, as well as a potential diagnoises and next steps for their care. The nurse can verify this and add the patient to the system, which enters them in what could be considered a 'digital waiting room'. As they are added, a 15 minute timer is set for each patient which helps the nurse in checking on the patients in a timely manner to see if their symptoms have improved/worsened and if their traige score needs to be changed.
+
+TriageTrack front end was built using React.js, a Claude 2.0 model trained on limited data that included insights from the triage training done by CAEP (Canadian Association of Emergency Physicians) and integrated AI chat + voice assistant through Voiceflow.
